@@ -21,6 +21,13 @@ get '/bus' do
   "Hello - I'm a bus!"
 end
 
-get '/cat' do
-erb(:index)
+get '/random-cat' do
+  @cat = ["Sam", "Tibby", "Topsy"].sample
+  erb(:index)
+end
+
+get '/named-cat' do
+  p params[:name]
+  @cat = params[:name]
+  erb(:index)
 end
